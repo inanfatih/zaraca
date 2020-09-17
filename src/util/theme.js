@@ -1,13 +1,13 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles'
 
-export const drawerWidth = 270;
-export const appBarHeight = 70;
+export const drawerWidth = 300
+export const appBarHeight = 70
 
 export const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#33c9dc',
-      main: '#202123',
+      main: '#fff',
       dark: '#008394',
       contrastText: '#fff',
     },
@@ -22,7 +22,7 @@ export const theme = createMuiTheme({
   typography: {
     fontFamily: "['Oswald', 'sans-serif'].join(',')",
   },
-});
+})
 
 export const styles = (theme) => ({
   root: {
@@ -47,7 +47,7 @@ export const styles = (theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: '#202123',
+    background: '#fff',
   },
   content: {
     minHeight: '100vh',
@@ -63,19 +63,21 @@ export const styles = (theme) => ({
     background: '#DE2548',
   },
   icons: {
-    color: '#fff',
+    color: '#000',
   },
   logoXs: {
     padding: '10px',
-    margin: 'auto 2%',
-    width: 50,
+    paddingLeft: '50px',
+    margin: 'auto',
+    height: 55,
   },
   logoSmUp: {
     objectFit: 'contain',
-    paddingTop: 25,
-    backgroundColor: '#202123',
-    width: drawerWidth * 0.5,
-    height: drawerWidth * 0.7,
+    paddingTop: 30,
+    paddingBottom: 30,
+    backgroundColor: '#fff',
+    width: drawerWidth * 0.9,
+    height: drawerWidth,
     margin: 'auto',
     display: 'block',
   },
@@ -93,8 +95,8 @@ export const styles = (theme) => ({
     justifyContent: 'space-evenly',
     padding: '10px',
     textAlign: 'center',
-    backgroundColor: '#202123',
-    color: 'white',
+    backgroundColor: '#fff',
+    color: 'black',
     fontSize: '2em',
     margin: 'auto',
   },
@@ -102,8 +104,8 @@ export const styles = (theme) => ({
     padding: '10px',
     paddingBottom: '10px',
     textAlign: 'center',
-    backgroundColor: '#202123',
-    color: 'white',
+    backgroundColor: '#fff',
+    color: 'black',
     fontSize: '2.6em',
   },
   listItemText: {
@@ -135,7 +137,7 @@ export const styles = (theme) => ({
       padding: '2%',
     },
     background: 'white',
-    color: '#202123',
+    color: '#fff',
   },
 
   cardMedia: {
@@ -174,7 +176,7 @@ export const styles = (theme) => ({
       padding: '5%',
     },
     background: 'white',
-    color: '#202123',
+    color: '#fff',
   },
 
   contactForm: {
@@ -192,4 +194,4 @@ export const styles = (theme) => ({
   },
 
   textField: {},
-});
+})

@@ -44,7 +44,7 @@ export default function TwoDThreeD(props) {
                     margin: '3% 2%',
                     width: '95%',
                     padding: '15px 0 15px 5px',
-                    border: '1px solid #202123',
+                    border: '1px solid #fff',
                     borderRadius: '5px',
                   }}>
                   At Zaraca, we knead our limitless capability in visual arts
@@ -71,7 +71,7 @@ export default function TwoDThreeD(props) {
                     margin: '3% 2%',
                     width: '95%',
                     padding: '15px 0 15px 5px',
-                    border: '1px solid #202123',
+                    border: '1px solid #fff',
                     borderRadius: '5px',
                   }}>
                   We are preparing for a smart platform that will allow fully

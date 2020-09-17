@@ -1,67 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import '../App.css';
-import logo from '../images/kpLogo.png';
-import { styles } from '../util/theme';
+import '../App.css'
+import logo from '../images/kpLogo.png'
+import logoXs from '../images/kpLogoWithoutSlogan.png'
+import { styles } from '../util/theme'
 
 //MUI
-import AppBar from '@material-ui/core/AppBar';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import VideocamIcon from '@material-ui/icons/Videocam';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Collapse from '@material-ui/core/Collapse';
-import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
-import WorkIcon from '@material-ui/icons/Work';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
-import HomeIcon from '@material-ui/icons/Home';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import useWindowDimensions from '../util/getWindowDimensions';
-import MissionIcon from '@material-ui/icons/TrackChanges';
+import AppBar from '@material-ui/core/AppBar'
+import Drawer from '@material-ui/core/Drawer'
+import Hidden from '@material-ui/core/Hidden'
+import IconButton from '@material-ui/core/IconButton'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import VideocamIcon from '@material-ui/icons/Videocam'
+import ListItemText from '@material-ui/core/ListItemText'
+import MailIcon from '@material-ui/icons/Mail'
+import MenuIcon from '@material-ui/icons/Menu'
+import Toolbar from '@material-ui/core/Toolbar'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Collapse from '@material-ui/core/Collapse'
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary'
+import WorkIcon from '@material-ui/icons/Work'
+import ExpandLess from '@material-ui/icons/ExpandLess'
+import ExpandMore from '@material-ui/icons/ExpandMore'
+import StarBorder from '@material-ui/icons/StarBorder'
+import HomeIcon from '@material-ui/icons/Home'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import useWindowDimensions from '../util/getWindowDimensions'
+import MissionIcon from '@material-ui/icons/TrackChanges'
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles)
 
 function Navigation(props) {
-  const { container } = props;
-  const classes = useStyles();
-  const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { container } = props
+  const classes = useStyles()
+  const theme = useTheme()
+  const [mobileOpen, setMobileOpen] = React.useState(false)
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+    setMobileOpen(!mobileOpen)
+  }
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true)
 
   const handleClick = () => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
 
   useEffect(() => {
     if (width < 600) {
-      setOpen(true);
+      setOpen(true)
     }
-  }, [width]);
+  }, [width])
 
   const drawer = (
     <div
       style={{
-        backgroundColor: '#202123',
-        color: 'white',
+        backgroundColor: '#fff',
+        color: 'black',
         height: '100vh',
         position: 'relative',
         float: 'left',
@@ -75,11 +76,11 @@ function Navigation(props) {
             <Typography className={classes.listItemText}>Home</Typography>
           </ListItem>
         </Link>
-        <ListItem button key='Works' onClick={handleClick}>
+        <ListItem button key='products' onClick={handleClick}>
           <ListItemIcon className={classes.icons}>
             <WorkIcon />
           </ListItemIcon>
-          <Typography className={classes.listItemText}>Works</Typography>
+          <Typography className={classes.listItemText}>Products</Typography>
           <ListItemText />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
@@ -91,7 +92,7 @@ function Navigation(props) {
                   <VideocamIcon />
                 </ListItemIcon>
                 <Typography className={classes.listItemText}>
-                  2D & 3D
+                  Apple Watch Band
                 </Typography>
               </ListItem>
             </Link>
@@ -102,18 +103,8 @@ function Navigation(props) {
                 <ListItemIcon className={classes.icons}>
                   <VideoLibraryIcon />
                 </ListItemIcon>
-                <Typography className={classes.listItemText}>Videos</Typography>
-              </ListItem>
-            </Link>
-          </List>
-          <List component='div' disablePadding>
-            <Link to='/social-media'>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon className={classes.icons}>
-                  <StarBorder />
-                </ListItemIcon>
                 <Typography className={classes.listItemText}>
-                  Social Media
+                  Apple Airpods Case
                 </Typography>
               </ListItem>
             </Link>
@@ -155,7 +146,7 @@ function Navigation(props) {
       <div className={classes.socialMediaIcons}>
         <div style={{ position: 'fixed', bottom: '5%' }}>
           <a
-            href='https://www.youtube.com/channel/UCD2hr0gq9pV8aDG1mO5JlAg'
+            href='https://www.youtube.com/c/zaracaAccessories'
             target='_blank'
             rel='noopener noreferrer'>
             <i
@@ -163,33 +154,42 @@ function Navigation(props) {
               style={{ padding: '0 10px' }}></i>
           </a>
           <a
-            href='https://www.instagram.com/alaska.media/'
+            href='https://www.instagram.com/ZaracaAccessories'
             target='_blank'
             rel='noopener noreferrer'>
             <i
               className='fab fa-instagram fa-lg'
               style={{ padding: '0 10px' }}></i>
           </a>
+
           <a
-            href='https://twitter.com/MediaAlaska'
+            href='https://www.pinterest.ca/ZaracaStore'
             target='_blank'
             rel='noopener noreferrer'>
             <i
-              className='fab fa-twitter fa-lg'
+              className='fab fa-pinterest fa-lg'
               style={{ padding: '0 10px' }}></i>
           </a>
           <a
-            href='https://www.facebook.com/Alaska-Media-106613784442664'
+            href='https://www.facebook.com/ZaracaAccessories'
             target='_blank'
             rel='noopener noreferrer'>
             <i
               className='fab fa-facebook fa-lg'
               style={{ padding: '0 10px' }}></i>
           </a>
+          <a
+            href='https://twitter.com/ZaracaStore'
+            target='_blank'
+            rel='noopener noreferrer'>
+            <i
+              className='fab fa-twitter fa-lg'
+              style={{ padding: '0 10px' }}></i>
+          </a>
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
     <div className={classes.root}>
@@ -202,15 +202,10 @@ function Navigation(props) {
               edge='start'
               onClick={handleDrawerToggle}
               className={classes.menuButton}>
-              <MenuIcon />
+              <MenuIcon style={{ color: 'black' }} />
             </IconButton>
             <Link to='/'>
-              <img src={logo} alt='logo' className={classes.logoXs} />
-            </Link>
-            <Link to='/'>
-              <Typography className={classes.companyNameXs}>
-                Alaska Media
-              </Typography>
+              <img src={logoXs} alt='logo' className={classes.logoXs} />
             </Link>
           </Toolbar>
         </AppBar>
@@ -254,7 +249,7 @@ function Navigation(props) {
         <div className={classes.toolbar} />
       </Hidden>
     </div>
-  );
+  )
 }
 
-export default Navigation;
+export default Navigation
