@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import ThumbnailCards from '../components/ThumbnailCards';
+import React, { Component } from 'react'
+import ThumbnailCards from '../components/ThumbnailCards'
 
 class Home extends Component {
   render() {
-    return <ThumbnailCards dataPath='/content' />;
+    return <ThumbnailCards dataPath='/product' />
   }
 }
 
-export default Home;
+export default Home

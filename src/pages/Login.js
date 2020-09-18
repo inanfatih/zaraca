@@ -160,9 +160,8 @@ class login extends Component {
                       variant='contained'
                       color='primary'
                       style={{
-                        margin: '2%',
+                        marginLeft: '3%',
                         width: '95%',
-                        padding: '1%',
                       }}
                       disabled={loading}>
                       {loading ? (

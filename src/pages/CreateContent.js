@@ -54,6 +54,7 @@ const CreateContent = (props) => {
     mainImage: '',
     imageList: [],
     videoUrl: '',
+    etsyUrl: '',
     orderNo: 0,
   })
 
@@ -74,6 +75,7 @@ const CreateContent = (props) => {
     thumbnail,
     mainImage,
     videoUrl,
+    etsyUrl,
     orderNo,
   } = content
 
@@ -200,7 +202,7 @@ const CreateContent = (props) => {
       })
 
       axios
-        .post('/content', content)
+        .post('/product', content)
         .then((res) => {
           setContentId(res.data.content.contentId)
           return res.data.content.contentId
@@ -283,10 +285,7 @@ const CreateContent = (props) => {
       window.alert('Session expired. Login again')
     }
   }
-  useEffect(() => {
-    // console.log('content', content);
-    // console.log('imageList', imageList);
-  }, [content, imageList])
+  useEffect(() => {}, [content, imageList])
 
   const clearForm = () => {
     setContent({
@@ -299,6 +298,7 @@ const CreateContent = (props) => {
       mainImage: '',
       imageList: [],
       videoUrl: '',
+      etsyUrl: '',
       orderNo: 0,
     })
     setImageList([''])
@@ -365,7 +365,7 @@ const CreateContent = (props) => {
                       marginLeft: '2%',
                       width: '95%',
                     }}>
-                    Create Content
+                    Create Product
                   </Typography>
                   <TextField
                     id='title'
@@ -413,7 +413,7 @@ const CreateContent = (props) => {
                     required
                     variant='outlined'
                     error={errors.orderNo ? true : false}
-                    helperText="Content will be sorted by the Displaying priority. Higher number means higher priority. When the priority matches another content's priority, the content created later will have higher priority."
+                    helperText="Products will be sorted by the Displaying priority. Higher number means higher priority. When the priority matches another product's priority, the product created later will have higher priority."
                     value={orderNo}
                     onChange={onInput}
                     fullWidth
@@ -444,22 +444,17 @@ const CreateContent = (props) => {
                         <FormControlLabel
                           value={1}
                           control={<Radio />}
-                          label='Social Media'
+                          label='Apple Watch Band'
                         />
                         <FormControlLabel
                           value={2}
                           control={<Radio />}
-                          label='2D & 3D'
-                        />
-                        <FormControlLabel
-                          value={3}
-                          control={<Radio />}
-                          label='Video'
+                          label='Apple Airpod Case'
                         />
                       </RadioGroup>
                     </FormControl>
                   </div>
-                  <TextField
+                  {/* <TextField
                     id='videoUrl'
                     name='videoUrl'
                     label='Video Url'
@@ -467,6 +462,17 @@ const CreateContent = (props) => {
                     helperText={errors.videoUrl}
                     error={errors.videoUrl ? true : false}
                     value={videoUrl}
+                    onChange={onInput}
+                    fullWidth
+                  /> */}
+                  <TextField
+                    id='etsyUrl'
+                    name='etsyUrl'
+                    label='Etsy Url'
+                    variant='outlined'
+                    helperText={errors.etsyUrl}
+                    error={errors.etsyUrl ? true : false}
+                    value={etsyUrl}
                     onChange={onInput}
                     fullWidth
                   />
@@ -523,7 +529,7 @@ const CreateContent = (props) => {
                         marginBottom: '1%',
                       }}>
                       Upload Main Image (The image to be displayed on the top in
-                      the content page or under the video)
+                      the product page or under the video)
                     </div>
 
                     <div
@@ -615,7 +621,7 @@ const CreateContent = (props) => {
                         color='secondary'
                         size={30}></CircularProgress>
                     ) : (
-                      'Create Content'
+                      'Create Product'
                     )}
                   </Button>
                   <Button
@@ -649,7 +655,7 @@ const CreateContent = (props) => {
         aria-describedby='alert-dialog-slide-description'>
         <DialogTitle id='alert-dialog-slide-title'>
           {!isSuccessfull && !isFailed
-            ? 'Uploading content images - Please wait'
+            ? 'Uploading product images - Please wait'
             : isFailed
             ? 'Failed'
             : 'Successful'}
@@ -665,7 +671,7 @@ const CreateContent = (props) => {
             ) : isFailed ? (
               `Failed - Try again ${contentId}`
             ) : (
-              `Good job!!! Content is created with Content ID:  ${contentId}`
+              `Good job!!! Product is created with Product ID:  ${contentId}`
             )}
           </DialogContentText>
         </DialogContent>

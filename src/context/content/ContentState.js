@@ -1,14 +1,14 @@
-import React, { useReducer } from 'react';
-import ContentContext from './contentContext';
-import contentReducer from './contentReducer';
+import React, { useReducer } from 'react'
+import ContentContext from './contentContext'
+import contentReducer from './contentReducer'
 import {
   GET_CONTENT,
   CONTENT_ERROR,
   DELETE_CONTENT,
   SET_LOADING,
   SET_DATAPATH,
-} from '../types';
-import axios from 'axios';
+} from '../types'
+import axios from 'axios'
 
 const ContentState = (props) => {
   const initialState = {
@@ -16,56 +16,56 @@ const ContentState = (props) => {
     loading: false,
     error: null,
     current: null,
-    allContentPath: '/content',
+    allContentPath: '/product',
     contentToCreate: {},
-    dataPath: '/content',
-  };
+    dataPath: '/product',
+  }
 
-  const [state, dispatch] = useReducer(contentReducer, initialState);
+  const [state, dispatch] = useReducer(contentReducer, initialState)
 
   const getContent = async (dataPath) => {
-    setLoading();
+    setLoading()
     try {
-      const res = await axios.get(dataPath);
-      console.log('res', res.data);
+      const res = await axios.get(dataPath)
+      console.log('res', res.data)
       dispatch({
         type: GET_CONTENT,
         payload: res.data,
-      });
+      })
     } catch (error) {
       dispatch({
         type: CONTENT_ERROR,
         payload: error.response,
-      });
+      })
     }
-  };
+  }
 
   const deleteContent = async (contentId) => {
-    setLoading();
+    setLoading()
     try {
-      const res = await axios.delete(`/content/${contentId}`);
+      const res = await axios.delete(`/product/${contentId}`)
 
       dispatch({
         type: DELETE_CONTENT,
         payload: res.data,
-      });
+      })
     } catch (error) {
       dispatch({
         type: CONTENT_ERROR,
         payload: error.response,
-      });
+      })
     }
-  };
+  }
 
   const setDataPath = (dataPath) => {
     dispatch({
       type: SET_DATAPATH,
       payload: dataPath,
-    });
-  };
+    })
+  }
 
   // Set Loading
-  const setLoading = () => dispatch({ type: SET_LOADING });
+  const setLoading = () => dispatch({ type: SET_LOADING })
 
   return (
     <ContentContext.Provider
@@ -82,7 +82,7 @@ const ContentState = (props) => {
       }}>
       {props.children}
     </ContentContext.Provider>
-  );
-};
+  )
+}
 
-export default ContentState;
+export default ContentState

@@ -86,25 +86,25 @@ function Navigation(props) {
         </ListItem>
         <Collapse in={open} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
-            <Link to='/2d3d'>
+            <Link to='/apple-watch-band'>
               <ListItem button className={classes.nested}>
                 <ListItemIcon className={classes.icons}>
                   <VideocamIcon />
                 </ListItemIcon>
                 <Typography className={classes.listItemText}>
-                  Apple Watch Band
+                  Apple Watch Bands
                 </Typography>
               </ListItem>
             </Link>
           </List>
           <List component='div' disablePadding>
-            <Link to='/videos'>
+            <Link to='/apple-airpod-case'>
               <ListItem button className={classes.nested}>
                 <ListItemIcon className={classes.icons}>
                   <VideoLibraryIcon />
                 </ListItemIcon>
                 <Typography className={classes.listItemText}>
-                  Apple Airpods Case
+                  Apple Airpod Cases
                 </Typography>
               </ListItem>
             </Link>

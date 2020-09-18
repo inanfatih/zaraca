@@ -17,9 +17,8 @@ import { styles } from './util/theme'
 import './App.css'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
-import TwoDThreeD from './pages/TwoDThreeD'
-import Videos from './pages/Videos'
-import SocialMedia from './pages/SocialMedia'
+import AppleWatchBand from './pages/AppleWatchBand'
+import AppleAirpodCase from './pages/AppleAirpodCase'
 import Content from './pages/Content'
 import MisionVision from './pages/MisionVision'
 import Admin from './pages/Admin'
@@ -44,12 +43,19 @@ function App() {
           <Navigation />
           <main className={classes.content}>
             <Switch>
-              <Route exact path='/2d3d' component={TwoDThreeD} />
+              <Route
+                exact
+                path='/apple-watch-band'
+                component={AppleWatchBand}
+              />
               <Route exact path='/admin' component={Admin} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/missions-visions' component={MisionVision} />
-              <Route exact path='/videos' component={Videos} />
-              {/* <Route exact path='/social-media' component={SocialMedia} /> ------------ */}
+              <Route
+                exact
+                path='/apple-airpod-case'
+                component={AppleAirpodCase}
+              />
               <Route exact path='/social-media' component={Home} />
               <Route exact path='/contact' component={Contact} />
               <Route exact path='/edit-content' component={EditContent} />

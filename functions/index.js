@@ -1,46 +1,45 @@
-const functions = require('firebase-functions');
-const app = require('express')();
+const functions = require('firebase-functions')
+const app = require('express')()
 
-const FBAuth = require('./util/FbAuth.js');
+const FBAuth = require('./util/FbAuth.js')
 
-const cors = require('cors');
-app.use(cors());
+const cors = require('cors')
+app.use(cors())
 
 const {
   getContents,
   getContent,
   postContent,
-  get2d3d,
-  getSocialMedia,
-  getVideos,
+  getAppleWatchBand,
+  getAppleAirpodCase,
+  // getVideos,
   updateContentImageLinks,
   deleteContent,
-} = require('./handlers/content');
-
+} = require('./handlers/content')
 
 const {
   contactUs,
   getContactUsMessages,
   deleteContactUsMessage,
-} = require('./handlers/contactUs');
+} = require('./handlers/contactUs')
 
-const { login } = require('./handlers/users');
+const { login } = require('./handlers/users')
 
-app.get('/content/:contentId', getContent);
-app.get('/content', getContents);
-app.get('/2d3d', get2d3d);
-app.get('/social-media', getSocialMedia);
-app.get('/videos', getVideos);
-app.post('/content', FBAuth, postContent);
+app.get('/product/:contentId', getContent)
+app.get('/product', getContents)
+app.get('/apple-watch-band', getAppleWatchBand)
+app.get('/apple-airpod-case', getAppleAirpodCase)
+// app.get('/videos', getVideos)
+app.post('/product', FBAuth, postContent)
 app.post(
   '/image/:contentId/:imageType/:imageFileName/:imageExtension/:index',
   FBAuth,
   updateContentImageLinks,
-);
+)
 
-app.post('/contact', contactUs);
-app.get('/contact', FBAuth, getContactUsMessages);
-app.delete('/contact/:contactId', FBAuth, deleteContactUsMessage);
+app.post('/contact', contactUs)
+app.get('/contact', FBAuth, getContactUsMessages)
+app.delete('/contact/:contactId', FBAuth, deleteContactUsMessage)
 
 // app.post('/image/:contentId/mainImage/:imageFileName', FBAuth, postMainImage);
 // app.post(
@@ -48,8 +47,8 @@ app.delete('/contact/:contactId', FBAuth, deleteContactUsMessage);
 //   FBAuth,
 //   postImageList,
 // );
-app.post('/login', login);
+app.post('/login', login)
 
-app.delete('/content/:contentId', FBAuth, deleteContent);
+app.delete('/product/:contentId', FBAuth, deleteContent)
 
-exports.api = functions.https.onRequest(app);
+exports.api = functions.https.onRequest(app)

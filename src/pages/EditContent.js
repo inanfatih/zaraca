@@ -1,17 +1,17 @@
-import React from 'react';
-import MaterialTable from 'material-table';
+import React from 'react'
+import MaterialTable from 'material-table'
 
-import axios from 'axios';
+import axios from 'axios'
 //Files
-import '../App.css';
-import IsAuthenticated from '../util/IsAuthenticated';
+import '../App.css'
+import IsAuthenticated from '../util/IsAuthenticated'
 
 export default function EditContent(props) {
   if (!IsAuthenticated()) {
-    props.history.push('/login');
+    props.history.push('/login')
   }
 
-  const [state, setState] = React.useState([]);
+  const [state, setState] = React.useState([])
 
   const columns = [
     { title: 'Title', field: 'title' },
@@ -24,28 +24,29 @@ export default function EditContent(props) {
     {
       title: 'Content Type',
       field: 'type',
-      lookup: { 1: 'Social Media', 2: '2D & 3D', 3: 'Video' },
+      lookup: { 1: 'Apple Watch Band', 2: 'Apple Airpod Case' },
     },
-    { title: 'VideoURL', field: 'videoUrl' },
+    // { title: 'Video URL', field: 'videoUrl' },
+    { title: 'Etsy URL', field: 'etsyUrl' },
     { title: 'Thumbnail', field: 'thumbnail' },
     { title: 'Main Image', field: 'mainImage' },
     { title: 'Additional Images', field: 'imageList' },
     { title: 'Created At', field: 'createdAt' },
     { title: 'ID', field: 'contentId' },
-  ];
+  ]
 
   React.useEffect(() => {
     axios
-      .get('/content')
+      .get('/product')
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        setState(res.data);
+        console.log(res)
+        console.log(res.data)
+        setState(res.data)
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+        console.log(err)
+      })
+  }, [])
 
   return (
     <MaterialTable
@@ -68,20 +69,20 @@ export default function EditContent(props) {
         //     }, 600);
         //   }),
         onRowDelete: async (oldData) => {
-          IsAuthenticated();
-          const contentId = oldData.contentId;
-          console.log('oldData', oldData);
-          console.log('contentId', contentId);
+          IsAuthenticated()
+          const contentId = oldData.contentId
+          console.log('oldData', oldData)
+          console.log('contentId', contentId)
           await axios
-            .delete(`/content/${contentId}`)
+            .delete(`/product/${contentId}`)
             .then((res) => {
-              setState(res.data);
+              setState(res.data)
             })
             .catch((err) => {
-              console.log(err);
-            });
+              console.log(err)
+            })
         },
       }}
     />
-  );
+  )
 }

@@ -38,6 +38,7 @@ export default function Admin(props) {
             alt='Logo'
             style={{
               margin: 'auto',
+              paddingTop: '50px',
               display: 'block',
               width: '60%',
             }}
